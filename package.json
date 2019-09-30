@@ -7,13 +7,14 @@
     "@types/node": "12.7.8",
     "@types/react": "16.9.3",
     "@types/react-dom": "16.9.1",
+    "node-sass": "^4.12.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-scripts": "3.1.2",
     "typescript": "3.6.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HOST=localhost; react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

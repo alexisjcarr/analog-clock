@@ -1,0 +1,69 @@
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .clock-face {
+    border-radius: 1000px;
+    border: 10px solid black;
+    width: 500px;
+    height: 500px;
+    z-index: 1;
+
+    .numbers {
+      z-index: 2;
+
+      .center {
+        position: relative;
+        top: 200px;
+      }
+
+      .twelve {
+        position: relative;
+        top: -60px;
+      }
+
+      .three {
+        position: relative;
+        left: 200px;
+        top: 75px;
+      }
+
+      .six {
+        position: relative;
+        top: 240px;
+      }
+
+      .nine {
+        position: relative;
+        right: 200px;
+        top: -30px;
+      }
+
+      .hands {
+        z-index: 3;
+
+        svg {
+          border: 5px solid black;
+          z-index: 4;
+          position: relative;
+          top: -330px;
+          left: -10px;
+
+          .minute-hand {
+            stroke: black;
+            stroke-width: 4;
+            transform: rotate(100, 254, 245);
+          }
+
+          .hour-hand {
+            stroke: black;
+            stroke-width: 6;
+            transform: rotate(100, 254, 245);
+          }
+        }
+      }
+    }
+  }
+}
