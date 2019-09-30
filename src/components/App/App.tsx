@@ -5,12 +5,8 @@ const App: React.FC = () => {
   //const [time] = useState(Date.now());
 
   const [seconds, setSeconds] = useState(0);
-  // const [minutes, setMinutes] = useState(0);
-  // const [hours, setHours] = useState(0);
-
-  const tickTock = () => {
-    // do some math stuff for the minutes and seconds
-  };
+  const [minutes, setMinutes] = useState(0);
+  const [hours, setHours] = useState(0);
 
   useEffect(() => {
     const time = setInterval(() => {
@@ -19,6 +15,22 @@ const App: React.FC = () => {
 
     return () => clearInterval(time);
   }, [seconds]);
+
+  useEffect(() => {
+    const time = setInterval(() => {
+      setMinutes(prevMinutes => prevMinutes + 1);
+    }, 60000);
+
+    return () => clearInterval(time);
+  }, [minutes]);
+
+  useEffect(() => {
+    const time = setInterval(() => {
+      setHours(prevHours => prevHours + 1);
+    }, 3600000);
+
+    return () => clearInterval(time);
+  }, [hours]);
 
   return (
     <div className="App">
@@ -33,25 +45,45 @@ const App: React.FC = () => {
             <svg height="510" width="510">
               <line
                 x1="254"
-                y1="245"
+                y1="250"
                 x2="250"
                 y2="20"
                 style={{
                   stroke: "red",
-                  strokeWidth: "2",
-                  transform: `rotate(${seconds * 6}deg)`, // okay
-                  transformOrigin: "center", // learn what this does
+                  strokeWidth: 1,
+                  transform: `rotate(${seconds * 6}deg)`,
+                  transformOrigin: "center",
                   position: "relative"
                 }}
               />
-              {/* <line
+              <line
                 className="minute-hand"
                 x1="254"
                 y1="250"
-                x2="500"
-                y2="255"
+                x2="250"
+                y2="35"
+                style={{
+                  stroke: "black",
+                  strokeWidth: 4,
+                  transform: `rotate(${minutes * 6}deg)`,
+                  transformOrigin: "center",
+                  position: "relative"
+                }}
               />
-              <line className="hour-hand" x1="254" y1="250" x2="200" y2="400" /> */}
+              <line
+                className="hour-hand"
+                x1="254"
+                y1="250"
+                x2="250"
+                y2="70"
+                style={{
+                  stroke: "black",
+                  strokeWidth: 6,
+                  transform: `rotate(${hours * 6}deg)`,
+                  transformOrigin: "center",
+                  position: "relative"
+                }}
+              />
             </svg>
           </div>
         </div>

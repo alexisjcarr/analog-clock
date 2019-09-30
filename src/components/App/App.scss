@@ -16,7 +16,9 @@
 
       .center {
         position: relative;
-        top: 200px;
+        top: 208px;
+        // color: white;
+        // font-size: 50px;
       }
 
       .twelve {
@@ -51,15 +53,20 @@
           top: -330px;
           left: -10px;
 
-          .minute-hand {
-            stroke: black;
-            stroke-width: 4;
-          }
+          // .second-hand {
+          //   stroke: red;
+          //   stroke-width: 2;
+          // }
 
-          .hour-hand {
-            stroke: black;
-            stroke-width: 6;
-          }
+          // .minute-hand {
+          //   stroke: black;
+          //   stroke-width: 4;
+          // }
+
+          // .hour-hand {
+          //   stroke: black;
+          //   stroke-width: 6;
+          // }
         }
       }
     }
