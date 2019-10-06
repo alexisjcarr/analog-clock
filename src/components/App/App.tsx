@@ -13,38 +13,24 @@ const App: React.FC = () => {
       setSeconds(prevSeconds => prevSeconds + 1);
     }, 1000);
 
-    const time1 = setInterval(() => {
+    return () => clearInterval(time);
+  }, [seconds]);
+
+  useEffect(() => {
+    const time = setInterval(() => {
       setMinutes(prevMinutes => prevMinutes + 1);
     }, 60000);
 
-    const time2 = setInterval(() => {
+    return () => clearInterval(time);
+  }, [minutes]);
+
+  useEffect(() => {
+    const time = setInterval(() => {
       setHours(prevHours => prevHours + 1);
     }, 3600000);
 
-    const cleanUp = () => {
-      clearInterval(time);
-      clearInterval(time1);
-      clearInterval(time2);
-    };
-
-    return cleanUp;
-  }, [seconds, minutes, hours]);
-
-  // useEffect(() => {
-  //   const time = setInterval(() => {
-  //     setMinutes(prevMinutes => prevMinutes + 1);
-  //   }, 60000);
-
-  //   return () => clearInterval(time);
-  // }, [minutes]);
-
-  // useEffect(() => {
-  //   const time = setInterval(() => {
-  //     setHours(prevHours => prevHours + 1);
-  //   }, 3600000);
-
-  //   return () => clearInterval(time);
-  // }, [hours]);
+    return () => clearInterval(time);
+  }, [hours]);
 
   return (
     <div className="App">
